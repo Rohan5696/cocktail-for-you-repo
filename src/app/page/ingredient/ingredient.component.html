@@ -1,0 +1,20 @@
+<div class="card mb-3 mt-2">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{drinkData.strDrinkThumb}}" class="img-fluid rounded-start" alt="{{drinkData.strImageAttribution || drinkData.strDrink}}">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{drinkData.strDrink}}</h5>
+          <p *ngIf="drinkData.strAlcoholic"><strong>Beverages: </strong> {{drinkData.strAlcoholic}}</p>
+          <p *ngIf="drinkData.strInstructions"><strong>Instructions: </strong>{{drinkData.strInstructions}}</p>
+          <p><strong>Ingredient's List:</strong></p>
+                      <ul>
+                          <li *ngFor="let ingredient of ingredientArray; let i = index;">
+                              {{ingredient}}{{measureArray[i] ? ' - ' + measureArray[i] : ''}}
+                          </li>
+                      </ul>
+        </div>
+      </div>
+    </div>
+  </div>

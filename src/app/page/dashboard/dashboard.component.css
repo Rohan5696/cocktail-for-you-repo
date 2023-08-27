@@ -1,0 +1,9 @@
+.static-card {
+      width: 12rem;
+      height: 7rem;
+      background-color: rgb(232, 205, 153);
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }

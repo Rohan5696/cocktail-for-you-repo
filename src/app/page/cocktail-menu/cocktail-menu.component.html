@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-12 mt-2">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="filter" id="All" (change)="updateList(selectedOption)" [value]="'All'" [(ngModel)]="selectedOption">
+        <label class="form-check-label" for="All">
+          All
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="filter" id="Alcoholic" (change)="updateList(selectedOption)" [value]="'Alcoholic'" [(ngModel)]="selectedOption">
+        <label class="form-check-label" for="Alcoholic">
+          Alcoholic
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="filter" id="Non Alcoholic" (change)="updateList(selectedOption)" [value]="'Non Alcoholic'" [(ngModel)]="selectedOption">
+        <label class="form-check-label" for="Non Alcoholic">
+          Non Alcoholic
+        </label>
+      </div>
+    </div>
+  </div>
+
+<div class="row">
+<div class="card mt-2" style="width: 18rem;cursor: pointer;margin-left: 10px;" (click)="showDetails(drink)" *ngFor="let drink of filteredDrinkList">
+    <img src="{{drink.strDrinkThumb}}"  alt="{{drink.strImageAttribution || drink.strDrink}}">
+    <div class="card-body">
+      <h5 class="card-title">{{drink.strDrink}}</h5>
+      <p *ngIf="drink.strAlcoholic"><strong>Beverages: </strong> {{drink.strAlcoholic}}</p>
+      <p *ngIf="drink.strGlass"> <strong>Glass: </strong> {{drink.strGlass}}</p>
+      <p *ngIf="drink.strCategory"><strong>Category:</strong> {{drink.strCategory}}</p>
+    </div>
+  </div>
+</div>
+<div class="row align-items-center" *ngIf="filteredDrinkList.length === 0">
+    <div class="card-div" style="text-align: center;">
+      No Cocktail found!!!
+    </div>
+  </div>
